@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HareController : MonoBehaviour
@@ -7,6 +8,8 @@ public class HareController : MonoBehaviour
     [SerializeField] private GameObject Hare1;
     [SerializeField] private GameObject Hare2;
     [SerializeField] private Hare1Animator _hare1Animator;
+    [SerializeField] private TextMeshPro _healthText;
+    [SerializeField] private TextMeshPro _moodText;
     public int _health = 90; //for controlling sliders
     public int _mood = 90;
 
@@ -20,6 +23,8 @@ public class HareController : MonoBehaviour
     }
     private void Update()
     {
+        _healthText.text = "HEALTH: " + _health.ToString();
+        _moodText.text = "MOOD: " + _mood.ToString();
         if (_health == 0 || _mood == 0)
         {
             _hare1Animator.IsDead();
