@@ -7,24 +7,22 @@ using UnityEngine.Analytics;
 public class Timer : MonoBehaviour
 {
     [SerializeField] HareController controller;
-    private float _timeStartHealth;
-    private float _timeStartMood;
+    private float _timeStartHealth = 40;
+    private float _timeStartMood = 20;
     void Update()
     {
-        _timeStartHealth = 40;
-        _timeStartMood = 20;
         _timeStartHealth -= Time.deltaTime;
         _timeStartMood -= Time.deltaTime;
 
-        if (_timeStartHealth < 0)
+        if (_timeStartHealth <= 0)
         {
-            _timeStartHealth = 0;
+            _timeStartHealth = 40;
             controller.NotEating();
         }
 
-        if (_timeStartMood < 0)
+        if (_timeStartMood <= 0)
         {
-            _timeStartMood = 0;
+            _timeStartMood = 20;
             controller.NotMood();
         }
     }

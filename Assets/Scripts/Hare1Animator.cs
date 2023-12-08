@@ -20,6 +20,7 @@ public class Hare1Animator : MonoBehaviour
     public void IsEating()
     {
         _animator.SetTrigger(Eat);
+        Debug.Log("poshloooo");
     }
 
     public void IsDrinking()

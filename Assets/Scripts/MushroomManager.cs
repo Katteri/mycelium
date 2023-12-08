@@ -10,9 +10,11 @@ public class MushroomManager : MonoBehaviour
     [SerializeField] private GameObject _parent;
     [SerializeField] private GameObject _rain;
     [SerializeField] private GameObject _seeds;
+
+    [SerializeField] private GameObject _animal;
     private int _grow = 0;
 
-    void Update()
+    void Check()
     {
         if (_grow == 1)
         {
@@ -22,7 +24,8 @@ public class MushroomManager : MonoBehaviour
             Invoke("Change2to3", 5f);
         } else if (_grow == 3)
         {
-            //¿’”≈“‹ Ÿ¿ ¡”ƒ≈“ —”Ÿ≈—“¬Œ ∆»¬Œ≈ œ–» »Õ‹“≈
+            gameObject.SetActive(false);
+            _animal.SetActive(true);
         }
     }
     public void GrowMoment()
@@ -31,12 +34,16 @@ public class MushroomManager : MonoBehaviour
         GameObject seed = Instantiate(_seeds);
         seed.transform.SetParent(_parent.transform, false);
 
+        Check();
+
     }
     public void Rain()
     {
         _grow += 1;
         GameObject water = Instantiate(_rain, _parent.transform.position, Quaternion.identity);
         water.transform.SetParent(_parent.transform, false);
+
+        Check();
     }
 
     void Change1to2()

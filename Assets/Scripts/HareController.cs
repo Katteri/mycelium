@@ -8,10 +8,16 @@ public class HareController : MonoBehaviour
     [SerializeField] private GameObject Hare1;
     [SerializeField] private GameObject Hare2;
     [SerializeField] private Hare1Animator _hare1Animator;
-    [SerializeField] private TextMeshPro _healthText;
-    [SerializeField] private TextMeshPro _moodText;
+    [SerializeField] private SliderScript _sliderScript;
+    [SerializeField] private TextMeshPro _error;
+    //[SerializeField] private TextMeshPro _healthText;
+    //[SerializeField] private TextMeshPro _moodText;
     public int _health = 90; //for controlling sliders
     public int _mood = 90;
+
+    [SerializeField] private MiniGame _miniGame;
+    [SerializeField] private TextMeshPro _money;
+    public int _amountOfMoney;
 
     private int _Circle; //for growing up
 
@@ -20,11 +26,40 @@ public class HareController : MonoBehaviour
     private void Start()
     {
         _hareState = HareState.Hare1;
+        _money.text = "MONEY: " + _amountOfMoney.ToString();
     }
-    private void Update()
+    //private void Update()
+    //{
+    //    //_healthText.text = "HEALTH: " + _health.ToString();
+    //    //_moodText.text = "MOOD: " + _mood.ToString();
+    //    if (_health == 0 || _mood == 0)
+    //    {
+    //        _hare1Animator.IsDead();
+    //    }
+
+    //    switch (_hareState)
+    //    {
+    //        case HareState.Hare1:
+    //            if (_health == 100 || _mood == 100)
+    //            {
+    //                _Circle += 1;
+    //                if (_Circle == 5)
+    //                {
+    //                    Hare1.SetActive(false);
+    //                    Hare2.SetActive(true);
+    //                    _hareState = HareState.Hare2;
+    //                }
+    //            }
+    //            break;
+
+    //        case HareState.Hare2:
+    //            //рост зайца на этом кончается
+    //            break;
+    //    }
+    //}
+
+    private void Check()
     {
-        _healthText.text = "HEALTH: " + _health.ToString();
-        _moodText.text = "MOOD: " + _mood.ToString();
         if (_health == 0 || _mood == 0)
         {
             _hare1Animator.IsDead();
@@ -53,41 +88,110 @@ public class HareController : MonoBehaviour
 
     public void Eating() //кнопка кормления
     {
-        switch (_hareState)
+        if (_amountOfMoney - 100 >= 0)
         {
-            case HareState.Hare1:
-                _hare1Animator.IsEating();
-                break;
-            case HareState.Hare2:
-                break;
-        }
+            if (_health < 100)
+            {
+                switch (_hareState)
+                {
+                    case HareState.Hare1:
+                        _hare1Animator.IsEating();
+                        break;
+                    case HareState.Hare2:
+                        break;
+                }
 
-        if (_health + 20 >= 100)
+                if (_health + 20 >= 100)
+                {
+                    _health = 100;
+                }
+                else
+                {
+                    _health += 20;
+                }
+
+                _amountOfMoney -= 100;
+                _money.text = "MONEY: " + _amountOfMoney.ToString();
+                _sliderScript.UpdateSprite();
+                Check();
+            }
+            else
+            {
+                _error.text = "YOUR PET IS NOT HUNGRY!";
+                Invoke("Deactive", 2);
+
+            }
+        }
+        else
         {
-            _health = 100;
-        } else
+            _error.text = "NOT ENOUGH MONEY!";
+            Invoke("Deactive", 2);
+        }
+    }
+
+    public void Drink()
+    {
+        if (_health < 100)
         {
-            _health += 20;
+            switch (_hareState)
+            {
+                case HareState.Hare1:
+                    _hare1Animator.IsDrinking();
+                    break;
+                case HareState.Hare2:
+                    break;
+            }
+
+            if (_health + 20 >= 100)
+            {
+                _health = 100;
+            }
+            else
+            {
+                _health += 20;
+            }
+
+            _sliderScript.UpdateSprite();
+            Check();
+        }
+        else
+        {
+            _error.text = "YOUR PET IS NOT THIRSTY!";
+            Invoke("Deactive", 2);
         }
     }
 
     public void ButtonMood() //кнопка игры
     {
-        switch (_hareState)
+        if (_mood < 100)
         {
-            case HareState.Hare1:
-                _hare1Animator.IsPlaying(Random.Range(1, 5));
-                break;
-            case HareState.Hare2:
-                break;
-        }
+            switch (_hareState)
+            {
+                case HareState.Hare1:
+                    _hare1Animator.IsPlaying(Random.Range(1, 5));
+                    break;
+                case HareState.Hare2:
+                    break;
+            }
 
-        if (_mood + 20 >= 100)
+            if (_mood + 20 >= 100)
+            {
+                _mood = 100;
+            }
+            else
+            {
+                _mood += 20;
+            }
+
+            _amountOfMoney += 50;
+            _money.text = "MONEY: " + _amountOfMoney.ToString();
+            _sliderScript.UpdateSprite();
+            Check();
+        }
+        else
         {
-            _mood = 100;
-        } else
-        {
-            _health += 20;
+            _error.text = "YOUR PET IS NOT SAD!";
+            Invoke("Deactive", 2);
         }
     }
 
@@ -109,6 +213,9 @@ public class HareController : MonoBehaviour
         {
             _health -= 25;
         }
+
+        _sliderScript.UpdateSprite();
+        Check();
     }
 
     public void NotMood()
@@ -129,8 +236,21 @@ public class HareController : MonoBehaviour
         {
             _mood -= 10;
         }
+
+        _sliderScript.UpdateSprite();
+        Check();
     }
 
+    private void Deactive()
+    {
+        _error.text = "";
+    }
+
+    public void EarnMoney(int m)
+    {
+        _amountOfMoney += m;
+        _money.text = "MONEY: " + _amountOfMoney.ToString();
+    }
     public enum HareState
     {
         Hare1,
