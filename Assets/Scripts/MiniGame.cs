@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UIElements;
 
 public class MiniGame : MonoBehaviour
@@ -14,15 +15,17 @@ public class MiniGame : MonoBehaviour
 
     [SerializeField] private HareController _controller;
     [SerializeField] private TextMeshPro _score;
+    [SerializeField] private TextMeshPro _timerText;
+    public float _timer;
     public int _amountOfWin;
     private Vector3 _position;
 
     public void StartGame()
     {
-        //_knife.transform.position = gameObject.transform.position;
+        _timer = 60;
+        _timerText.text = _timer.ToString();
+
         _position = Camera.main.transform.position + Camera.main.transform.forward * 1.5f;
-        
-        //_position = gameObject.transform.position;
         _knife.transform.position = _position;
 
         _amountOfWin = 0;
@@ -30,6 +33,16 @@ public class MiniGame : MonoBehaviour
         InvokeRepeating("Spawn", 0.2f, 0.5f);
     }
 
+    void Update()
+    {
+        _timer -= Time.deltaTime;
+        _timerText.text = Mathf.Round(_timer).ToString();
+
+        if (_timer < 0)
+        {
+            StopGameButton();
+        }
+    }
     public void Score()
     {
         _amountOfWin++;

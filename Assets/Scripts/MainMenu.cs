@@ -5,9 +5,9 @@ using UnityEngine.Analytics;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject _mainMenu;
-    public GameObject _menu;
-    public GameObject _about;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _about;
     private Vector3 _position;
     private Quaternion _rotation;
 

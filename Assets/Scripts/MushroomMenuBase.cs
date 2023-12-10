@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MushroomMenuBase : MonoBehaviour
 {
-    public GameObject _base;
-    public GameObject _menu;
+    [SerializeField] private GameObject _base;
+    [SerializeField] private GameObject _menu;
 
     public void Menu()
     {

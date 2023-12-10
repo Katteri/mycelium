@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MushroomManager : MonoBehaviour
 {
-    public GameObject _m1;
-    public GameObject _m2;
-    public GameObject _m3;
+    [SerializeField] private GameObject _m1;
+    [SerializeField] private GameObject _m2;
+    [SerializeField] private GameObject _m3;
     [SerializeField] private GameObject _parent;
     [SerializeField] private GameObject _rain;
     [SerializeField] private GameObject _seeds;
@@ -26,6 +24,8 @@ public class MushroomManager : MonoBehaviour
         {
             gameObject.SetActive(false);
             _animal.SetActive(true);
+            _animal.transform.position = gameObject.transform.position;
+            _animal.transform.rotation = gameObject.transform.rotation;
         }
     }
     public void GrowMoment()
@@ -42,7 +42,7 @@ public class MushroomManager : MonoBehaviour
         _grow += 1;
         GameObject water = Instantiate(_rain, _parent.transform.position, Quaternion.identity);
         water.transform.SetParent(_parent.transform, false);
-
+        Destroy(water, 10);
         Check();
     }
 

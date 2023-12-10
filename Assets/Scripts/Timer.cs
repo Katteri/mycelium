@@ -16,13 +16,13 @@ public class Timer : MonoBehaviour
 
         if (_timeStartHealth <= 0)
         {
-            _timeStartHealth = 40;
+            _timeStartHealth = 30;
             controller.NotEating();
         }
 
         if (_timeStartMood <= 0)
         {
-            _timeStartMood = 20;
+            _timeStartMood = 60;
             controller.NotMood();
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hare1Animator : MonoBehaviour
 {
-    [SerializeField] private Animator _animator; 
+    [SerializeField] private Animator _animator;
     public static readonly int Death = Animator.StringToHash("IsDead");
     public static readonly int Eat = Animator.StringToHash("IsEating");
     public static readonly int Drink = Animator.StringToHash("IsDrinking"); //не используется
@@ -20,7 +20,6 @@ public class Hare1Animator : MonoBehaviour
     public void IsEating()
     {
         _animator.SetTrigger(Eat);
-        Debug.Log("poshloooo");
     }
 
     public void IsDrinking()
