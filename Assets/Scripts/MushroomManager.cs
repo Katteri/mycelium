@@ -10,6 +10,7 @@ public class MushroomManager : MonoBehaviour
     [SerializeField] private GameObject _seeds;
 
     [SerializeField] private GameObject _animal;
+    [SerializeField] private GameObject _stars;
     private int _grow = 0;
 
     void Check()
@@ -26,6 +27,8 @@ public class MushroomManager : MonoBehaviour
             _animal.SetActive(true);
             _animal.transform.position = gameObject.transform.position;
             _animal.transform.rotation = gameObject.transform.rotation;
+            Instantiate(_stars, _parent.transform.position, Quaternion.identity);
+
         }
     }
     public void GrowMoment()
@@ -46,13 +49,13 @@ public class MushroomManager : MonoBehaviour
         Check();
     }
 
-    void Change1to2()
+    private void Change1to2()
     {
         _m1.SetActive(false);
         _m2.SetActive(true);
     }
 
-    void Change2to3()
+    private void Change2to3()
     {
         _m2.SetActive(false);
         _m3.SetActive(true);

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -175,6 +173,8 @@ public class HareController : MonoBehaviour
                 _health += 20;
             }
 
+            _amountOfMoney -= 100;
+            _money.text = "MONEY: " + _amountOfMoney.ToString();
             _sliderScript.UpdateSprite();
             Check();
         }

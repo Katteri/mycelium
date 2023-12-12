@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hare1Animator : MonoBehaviour
@@ -7,7 +5,7 @@ public class Hare1Animator : MonoBehaviour
     [SerializeField] private Animator _animator;
     public static readonly int Death = Animator.StringToHash("IsDead");
     public static readonly int Eat = Animator.StringToHash("IsEating");
-    public static readonly int Drink = Animator.StringToHash("IsDrinking"); //не используется
+    public static readonly int Drink = Animator.StringToHash("IsDrinking");
     public static readonly int Play = Animator.StringToHash("IsPlaying");
     public static readonly int Sad = Animator.StringToHash("IsSad");
 
@@ -30,6 +28,12 @@ public class Hare1Animator : MonoBehaviour
     public void IsPlaying(int random)
     {
         _animator.SetInteger(Play, random);
+        Invoke("StopPlaying", 10);
+    }
+
+    private void StopPlaing()
+    {
+        _animator.SetInteger(Play, 0);
     }
 
     public void IsSad(int random)

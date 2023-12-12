@@ -44456,6 +44456,7 @@ MonoBehaviour:
   _rain: {fileID: 7015469953354638113, guid: cddc158e85612994e89db55451a23de4, type: 3}
   _seeds: {fileID: 1705252827193556697, guid: 7d3e794b0b916a9429a6c61b1a5c7546, type: 3}
   _animal: {fileID: 2144954068}
+  _stars: {fileID: 5554634721246173460, guid: d6d03cbb805bef541aff45007443cd04, type: 3}
 --- !u!23 &7899125189386235564
 MeshRenderer:
   m_ObjectHideFlags: 0
