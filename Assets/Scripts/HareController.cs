@@ -8,8 +8,6 @@ public class HareController : MonoBehaviour
     [SerializeField] private Hare1Animator _hare1Animator;
     [SerializeField] private SliderScript _sliderScript;
     [SerializeField] private TextMeshPro _error;
-    //[SerializeField] private TextMeshPro _healthText;
-    //[SerializeField] private TextMeshPro _moodText;
     public int _health = 90; //for controlling sliders
     public int _mood = 90;
 
@@ -34,35 +32,6 @@ public class HareController : MonoBehaviour
         _hareState = HareState.Hare1;
         _money.text = "MONEY: " + _amountOfMoney.ToString();
     }
-    //private void Update()
-    //{
-    //    //_healthText.text = "HEALTH: " + _health.ToString();
-    //    //_moodText.text = "MOOD: " + _mood.ToString();
-    //    if (_health == 0 || _mood == 0)
-    //    {
-    //        _hare1Animator.IsDead();
-    //    }
-
-    //    switch (_hareState)
-    //    {
-    //        case HareState.Hare1:
-    //            if (_health == 100 || _mood == 100)
-    //            {
-    //                _Circle += 1;
-    //                if (_Circle == 5)
-    //                {
-    //                    Hare1.SetActive(false);
-    //                    Hare2.SetActive(true);
-    //                    _hareState = HareState.Hare2;
-    //                }
-    //            }
-    //            break;
-
-    //        case HareState.Hare2:
-    //            //рост зайца на этом кончается
-    //            break;
-    //    }
-    //}
 
     private void Check()
     {
