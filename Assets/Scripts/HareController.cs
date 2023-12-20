@@ -27,6 +27,13 @@ public class HareController : MonoBehaviour
     [SerializeField] private GameObject _animal;
     [SerializeField] private GameObject _theEnd;
 
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _errorSound;
+    [SerializeField] AudioClip _eatSound;
+    [SerializeField] AudioClip _hareEatSound;
+    [SerializeField] AudioClip _rainSound;
+    [SerializeField] AudioClip _drinkSound;
+    [SerializeField] AudioClip _harePlay;
     private void Start()
     {
         _hareState = HareState.Hare1;
@@ -95,11 +102,14 @@ public class HareController : MonoBehaviour
                 _amountOfMoney -= 100;
                 _money.text = "MONEY: " + _amountOfMoney.ToString();
                 _sliderScript.UpdateSprite();
+                _audioSource.PlayOneShot(_eatSound);
+                Invoke("EatSound", 8);
                 Check();
             }
             else
             {
                 _error.text = "YOUR PET IS NOT HUNGRY!";
+                _audioSource.PlayOneShot(_errorSound);
                 Invoke("Deactive", 2);
 
             }
@@ -107,10 +117,15 @@ public class HareController : MonoBehaviour
         else
         {
             _error.text = "NOT ENOUGH MONEY!";
+            _audioSource.PlayOneShot(_errorSound);
             Invoke("Deactive", 2);
         }
     }
 
+    private void EatSound()
+    {
+        _audioSource.PlayOneShot(_hareEatSound);
+    }
     public void Drink()
     {
         
@@ -145,15 +160,22 @@ public class HareController : MonoBehaviour
             _amountOfMoney -= 100;
             _money.text = "MONEY: " + _amountOfMoney.ToString();
             _sliderScript.UpdateSprite();
+            _audioSource.PlayOneShot(_rainSound);
+            Invoke("DrinkSound", 7);
             Check();
         }
         else
         {
             _error.text = "YOUR PET IS NOT THIRSTY!";
+            _audioSource.PlayOneShot(_errorSound);
             Invoke("Deactive", 2);
         }
     }
 
+    private void DrinkSound()
+    {
+        _audioSource.PlayOneShot(_drinkSound);
+    }
     private void Stop()
     {
         _parentEat.SetActive(false);
@@ -184,13 +206,20 @@ public class HareController : MonoBehaviour
             _amountOfMoney += 50;
             _money.text = "MONEY: " + _amountOfMoney.ToString();
             _sliderScript.UpdateSprite();
+            Invoke("PlaySound", 1.5f);
             Check();
         }
         else
         {
             _error.text = "YOUR PET IS NOT SAD!";
+            _audioSource.PlayOneShot(_errorSound);
             Invoke("Deactive", 2);
         }
+    }
+
+    private void PlaySound()
+    {
+        _audioSource.PlayOneShot(_harePlay);
     }
 
     public void NotEating()

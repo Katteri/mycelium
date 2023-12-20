@@ -28,7 +28,7 @@ public class Hare1Animator : MonoBehaviour
     public void IsPlaying(int random)
     {
         _animator.SetInteger(Play, random);
-        Invoke("StopPlaying", 10);
+        Invoke("StopPlaing", 10);
     }
 
     private void StopPlaing()

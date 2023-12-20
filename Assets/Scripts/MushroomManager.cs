@@ -11,6 +11,9 @@ public class MushroomManager : MonoBehaviour
 
     [SerializeField] private GameObject _animal;
     [SerializeField] private GameObject _stars;
+
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _magic;
     private int _grow = 0;
 
     void Check()
@@ -28,6 +31,7 @@ public class MushroomManager : MonoBehaviour
             _animal.transform.position = gameObject.transform.position;
             _animal.transform.rotation = gameObject.transform.rotation;
             Instantiate(_stars, _parent.transform.position, Quaternion.identity);
+            _audioSource.PlayOneShot(_magic);
 
         }
     }
