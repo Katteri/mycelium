@@ -16,6 +16,8 @@ public class MiniGame : MonoBehaviour
     public int _amountOfWin;
     private Vector3 _position;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _cutting;
     public void StartGame()
     {
         _timer = 60;
@@ -43,6 +45,7 @@ public class MiniGame : MonoBehaviour
     {
         _amountOfWin++;
         _score.text = "WIN: " + _amountOfWin.ToString();
+        _audioSource.PlayOneShot(_cutting);
     }
     private void Spawn()
     {
