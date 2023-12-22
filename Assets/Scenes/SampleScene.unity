@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28838,21 +28838,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 20
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 1
+  useFixedVerticalPosition: 0
   fixedVerticalPosition: 0.05
   orientToReferenceDirection: 0
 --- !u!1 &1381990275746661
@@ -29297,8 +29297,8 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
-  autoFollowTransformTarget: {fileID: 0}
+  autoFollowDistance: 1
+  autoFollowTransformTarget: {fileID: 963194228}
   autoFollowTriggered:
     m_PersistentCalls:
       m_Calls: []
@@ -33235,7 +33235,7 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
+  autoFollowDistance: 1
   autoFollowTransformTarget: {fileID: 0}
   autoFollowTriggered:
     m_PersistentCalls:
@@ -33253,21 +33253,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 20
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 1
+  useFixedVerticalPosition: 0
   fixedVerticalPosition: 0.05
   orientToReferenceDirection: 0
 --- !u!4 &1697582315209436944
@@ -44492,21 +44492,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 20
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 1
+  useFixedVerticalPosition: 0
   fixedVerticalPosition: 0.05
   orientToReferenceDirection: 0
 --- !u!114 &7890387982296307889
@@ -44666,8 +44666,8 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
-  autoFollowTransformTarget: {fileID: 0}
+  autoFollowDistance: 1
+  autoFollowTransformTarget: {fileID: 963194228}
   autoFollowTriggered:
     m_PersistentCalls:
       m_Calls: []

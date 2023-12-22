@@ -403,6 +403,7 @@ PlayerSettings:
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
   switchEnableFileSystemTrace: 0
+  switchUseGOLDLinker: 0
   switchLTOSetting: 0
   switchApplicationID: 0x01004b9000490000
   switchNSODependencies: 
@@ -678,11 +679,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: mycelium
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 001ed469fa53db01
   metroApplicationDescription: mycelium
   wsaImages: {}
   metroTileShortName: mycelium
