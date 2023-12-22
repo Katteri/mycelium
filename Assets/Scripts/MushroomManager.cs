@@ -4,7 +4,7 @@ public class MushroomManager : MonoBehaviour
 {
     [SerializeField] private GameObject _m1;
     [SerializeField] private GameObject _m2;
-    [SerializeField] private GameObject _m3;
+    //[SerializeField] private GameObject _m3;
     [SerializeField] private GameObject _parent;
     [SerializeField] private GameObject _rain;
     [SerializeField] private GameObject _seeds;
@@ -61,7 +61,8 @@ public class MushroomManager : MonoBehaviour
 
     private void Change2to3()
     {
-        _m2.SetActive(false);
-        _m3.SetActive(true);
+        //_m2.SetActive(false);
+        //_m3.SetActive(true);
+        _m2.gameObject.transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
     }
 }

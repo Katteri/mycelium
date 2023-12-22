@@ -23,7 +23,8 @@ public class MiniGame : MonoBehaviour
         _timer = 60;
         _timerText.text = _timer.ToString();
 
-        _position = Camera.main.transform.position + Camera.main.transform.forward * 1.5f;
+        //_position = Camera.main.transform.position + Camera.main.transform.forward * 1.5f;
+        _position = Camera.main.transform.position + Camera.main.transform.forward * 1f;
         _knife.transform.position = _position;
 
         _amountOfWin = 0;

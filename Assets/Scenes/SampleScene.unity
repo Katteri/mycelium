@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4428,89 +4428,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223387048}
   m_Mesh: {fileID: 4300000, guid: 02f05bd07b76e134b9ce1d218a95057a, type: 3}
---- !u!23 &226846479
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229092707}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: e654a3066dff72f4c92bcf01157d85d0, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &227878757
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229092707}
-  m_Mesh: {fileID: 4300000, guid: 19750d5bac51de747bf2425c4f3a98db, type: 3}
---- !u!4 &228602987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229092707}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.12512067, y: -0.79663396, z: 0.17660943, w: 0.56438315}
-  m_LocalPosition: {x: -0.0009, y: 0.0074, z: 0.0068999976}
-  m_LocalScale: {x: 0.006, y: 0.006, z: 0.006}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1972590948}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &229092707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 228602987}
-  - component: {fileID: 227878757}
-  - component: {fileID: 226846479}
-  m_Layer: 0
-  m_Name: Group3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &233704162
 GameObject:
   m_ObjectHideFlags: 0
@@ -26759,7 +26676,6 @@ Transform:
   m_Children:
   - {fileID: 6881922682123386357}
   - {fileID: 6890081765378576529}
-  - {fileID: 228602987}
   m_Father: {fileID: 3983946714338616250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981718891
@@ -27758,8 +27674,8 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
-  autoFollowTransformTarget: {fileID: 0}
+  autoFollowDistance: 1
+  autoFollowTransformTarget: {fileID: 963194228}
   autoFollowTriggered:
     m_PersistentCalls:
       m_Calls: []
@@ -27776,21 +27692,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 20
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 1
+  useFixedVerticalPosition: 0
   fixedVerticalPosition: 0.05
   orientToReferenceDirection: 0
 --- !u!114 &2012585876
@@ -28649,7 +28565,7 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
+  autoFollowDistance: 1
   autoFollowTransformTarget: {fileID: 0}
   autoFollowTriggered:
     m_PersistentCalls:
@@ -28667,21 +28583,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 50
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 1
+  useFixedVerticalPosition: 0
   fixedVerticalPosition: 0.05
   orientToReferenceDirection: 0
 --- !u!114 &2144954072
@@ -42194,17 +42110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.5
-  rotateLerpTime: 0.5
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.5
-  maxDistance: 0.5
+  minDistance: 0.4
+  maxDistance: 0.8
   minViewDegrees: 0
-  maxViewDegrees: 35
+  maxViewDegrees: 30
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
@@ -42269,8 +42185,8 @@ MonoBehaviour:
   interactableObject: {fileID: 0}
   buttonBehavior: 0
   autoFollowAtDistance: 0
-  autoFollowDistance: 2
-  autoFollowTransformTarget: {fileID: 0}
+  autoFollowDistance: 1
+  autoFollowTransformTarget: {fileID: 963194228}
   autoFollowTriggered:
     m_PersistentCalls:
       m_Calls: []
@@ -44685,7 +44601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _m1: {fileID: 6887724314531393575}
   _m2: {fileID: 6886976090334801733}
-  _m3: {fileID: 229092707}
   _parent: {fileID: 74043146}
   _rain: {fileID: 7015469953354638113, guid: cddc158e85612994e89db55451a23de4, type: 3}
   _seeds: {fileID: 1705252827193556697, guid: 7d3e794b0b916a9429a6c61b1a5c7546, type: 3}
